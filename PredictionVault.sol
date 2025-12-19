@@ -10,13 +10,13 @@ contract PredictionVault is Ownable {
 
     IERC20 public immutable token;
 
-    mapping(address => bytes) public userPredictions;
+    mapping(address => string) public userPredictions;
 
     constructor(address _tokenAddress) Ownable(msg.sender) {
         token = IERC20(_tokenAddress);
     }
 
-    function deposit(uint256 _amount, bytes memory _predictionData) public {
+    function deposit(uint256 _amount, string memory _predictionData) public {
         
         require(_amount > 0, "Vault: Deposit amount must be greater than zero.");
 
